@@ -112,20 +112,119 @@
         triangleVertexPositionBuffer = gl.createBuffer()
         gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer)
         var vertices = [
-          0.0,  1.0,  0.0,
-          -1.0, -1.0, 0.0,
-          1.0,  -1.0, 0.0
+          //1
+          0.0, 6.0, 0.0,
+          0.0, 5.0, 0.0,
+          3.0, 6.0, 0.0,
+
+          0.0, 5.0, 0.0,
+          3.0, 6.0, 0.0,
+          3.0, 5.0, 0.0,
+
+          //2
+          0.0, 5.0, 0.0,
+          1.0, 5.0, 0.0,
+          0.0, 4.0, 0.0,
+
+          0.0, 4.0, 0.0,
+          1.0, 4.0, 0.0,
+          1.0, 5.0, 0.0,
+
+          2.0, 5.0, 0.0,
+          3.0, 5.0, 0.0,
+          2.0, 4.0, 0.0,
+
+          2.0, 4.0, 0.0,
+          3.0, 4.0, 0.0,
+          3.0, 5.0, 0.0,
+
+          //3
+          0.0, 4.0, 0.0,
+          0.0, 3.0, 0.0,
+          3.0, 4.0, 0.0,
+
+          0.0, 3.0, 0.0,
+          3.0, 3.0, 0.0,
+          3.0, 4.0, 0.0,
+
+          //4
+          0.0, 3.0, 0.0,
+          1.0, 3.0, 0.0,
+          0.0, 0.0, 0.0,
+
+          0.0, 0.0, 0.0,
+          1.0, 0.0, 0.0,
+          1.0, 3.0, 0.0,
+
+          //5
+          1.0, 3.0, 0.0,
+          1.0, 2.0, 0.0,
+          2.0, 0.0, 0.0,
+
+          1.0, 3.0, 0.0,
+          3.0, 0.0, 0.0,
+          2.0, 0.0, 0.0
+
         ]
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW)
         triangleVertexPositionBuffer.itemSize = 3
-        triangleVertexPositionBuffer.numItems = 3
+        triangleVertexPositionBuffer.numItems = vertices.length / 3
         // Triangle Color
         triangleVertexColorBuffer = gl.createBuffer()
         gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexColorBuffer)
         var colors = [
+          //1
           1.0, 0.0, 0.0, 1.0,
           0.0, 1.0, 0.0, 1.0,
-          0.0, 0.0, 1.0, 1.0
+          0.0, 0.0, 1.0, 1.0,
+
+          1.0, 0.0, 0.0, 1.0,
+          0.0, 1.0, 0.0, 1.0,
+          0.0, 0.0, 1.0, 1.0,
+
+          //2
+          1.0, 0.0, 0.0, 1.0,
+          0.0, 1.0, 0.0, 1.0,
+          0.0, 0.0, 1.0, 1.0,
+
+          1.0, 0.0, 0.0, 1.0,
+          0.0, 1.0, 0.0, 1.0,
+          0.0, 0.0, 1.0, 1.0,
+
+          1.0, 0.0, 0.0, 1.0,
+          0.0, 1.0, 0.0, 1.0,
+          0.0, 0.0, 1.0, 1.0,
+
+          1.0, 0.0, 0.0, 1.0,
+          0.0, 1.0, 0.0, 1.0,
+          0.0, 0.0, 1.0, 1.0,
+
+          //3
+          1.0, 0.0, 0.0, 1.0,
+          0.0, 1.0, 0.0, 1.0,
+          0.0, 0.0, 1.0, 1.0,
+
+          1.0, 0.0, 0.0, 1.0,
+          0.0, 1.0, 0.0, 1.0,
+          0.0, 0.0, 1.0, 1.0,
+
+          //4
+          1.0, 0.0, 0.0, 1.0,
+          0.0, 1.0, 0.0, 1.0,
+          0.0, 0.0, 1.0, 1.0,
+
+          1.0, 0.0, 0.0, 1.0,
+          0.0, 1.0, 0.0, 1.0,
+          0.0, 0.0, 1.0, 1.0,
+
+          //5
+          1.0, 0.0, 0.0, 1.0,
+          0.0, 1.0, 0.0, 1.0,
+          0.0, 0.0, 1.0, 1.0,
+
+          1.0, 0.0, 0.0, 1.0,
+          0.0, 1.0, 0.0, 1.0,
+          0.0, 0.0, 1.0, 1.0,
         ]
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW)
         triangleVertexColorBuffer.itemSize = 4
@@ -160,7 +259,7 @@
         gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT)
         mat4.perspective(pMatrix, glMatrix.toRadian(45), gl.viewportWidth / gl.viewportHeight, 0.1, 100.0)
         mat4.identity(mvMatrix)
-        mat4.translate(mvMatrix, mvMatrix, [-1.5, 0.0, -7.0])
+        mat4.translate(mvMatrix, mvMatrix, [-1.5, 0.0, -17.0])
         mvPushMatrix()
         mat4.rotate(mvMatrix, mvMatrix, glMatrix.toRadian(rTri), [0.0, 1.0, 0.0])
         //mat4.rotateY(mvMatrix, mvMatrix, glMatrix.toRadian(rTri))
