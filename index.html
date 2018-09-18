@@ -569,24 +569,86 @@
         squareVertexPositionBuffer = gl.createBuffer()
         gl.bindBuffer(gl.ARRAY_BUFFER, squareVertexPositionBuffer)
         vertices = [
-          1.0,  1.0,  0.0,
-          -1.0, 1.0,  0.0,
-          1.0,  -1.0, 0.0,
-          -1.0, -1.0, 0.0
+          //depan
+          3.0, 1.0,  0.0,
+          2.0, 1.0,  0.0,
+          3.0, -4.0, 0.0,
+          2.0, -4.0, 0.0,
+
+          //belakang
+          3.0, 1.0,  1.0,
+          2.0, 1.0,  1.0,
+          3.0, -4.0, 1.0,
+          2.0, -4.0, 1.0,
+
+          //atas
+          2.0, 1.0, 0.0,
+          3.0, 1.0, 0.0,
+          2.0, 1.0, 1.0,
+          3.0, 1.0, 1.0,
+
+          //bawah
+          3.0, -4.0, 0.0,
+          2.0, -4.0, 0.0,
+          3.0, -4.0, 1.0,
+          2.0, -4.0, 1.0,
+
+          //kanan
+          3.0, 1.0, 0.0,
+          3.0, -4.0, 0.0,
+          3.0, 1.0, 1.0,
+          3.0, -4.0, 1.0,
+
+          //kiri
+          2.0, 1.0, 0.0,
+          2.0, -4.0, 0.0,
+          2.0, 1.0, 1.0,
+          2.0, -4.0, 1.0,
         ]
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW)
         squareVertexPositionBuffer.itemSize = 3
-        squareVertexPositionBuffer.numItems = 4
+        squareVertexPositionBuffer.numItems = vertices.length/3
         // Square Color
         squareVertexColorBuffer = gl.createBuffer();
         gl.bindBuffer(gl.ARRAY_BUFFER, squareVertexColorBuffer);
-        colors = [];
-        for (var i=0; i < 4; i++) {
-            colors = colors.concat([0.5, 0.5, 1.0, 1.0]);
-        }
+        colors = [
+          //depan
+          0.5, 0.5, 1.0, 1.0,
+          0.5, 0.5, 1.0, 1.0,
+          0.5, 0.5, 1.0, 1.0,
+          0.5, 0.5, 1.0, 1.0,
+
+          //belakang
+          0.5, 0.5, 1.0, 1.0,
+          0.5, 0.5, 1.0, 1.0,
+          0.5, 0.5, 1.0, 1.0,
+          0.5, 0.5, 1.0, 1.0,
+
+          //atas
+          204.0, 102.0, 0.0, 1.0,
+          204.0, 102.0, 0.0, 1.0,
+          204.0, 102.0, 0.0, 1.0,
+          204.0, 102.0, 0.0, 1.0,
+
+          //bawah
+          204.0, 102.0, 0.0, 1.0,
+          204.0, 102.0, 0.0, 1.0,
+          204.0, 102.0, 0.0, 1.0,
+          204.0, 102.0, 0.0, 1.0,
+
+          204.0, 102.0, 0.0, 1.0,
+          204.0, 102.0, 0.0, 1.0,
+          204.0, 102.0, 0.0, 1.0,
+          204.0, 102.0, 0.0, 1.0,
+
+          204.0, 102.0, 0.0, 1.0,
+          204.0, 102.0, 0.0, 1.0,
+          204.0, 102.0, 0.0, 1.0,
+          204.0, 102.0, 0.0, 1.0,
+        ];
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
         squareVertexColorBuffer.itemSize = 4;
-        squareVertexColorBuffer.numItems = 4;
+        squareVertexColorBuffer.numItems = colors.length/4;
       }
       var rTri = 0
       var rSquare = 0
